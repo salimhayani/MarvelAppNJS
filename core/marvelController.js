@@ -6,7 +6,7 @@ const BASE_URL = 'https://gateway.marvel.com:443/';
 const PUBLIC_KEY = '4f4eec12283e8b1b442220dce9e38ac2';
 const PRIVATE_KEY = 'cf303a1a252223ba32b9ca92d7cfc9e643d94a0d';
 const FIRST_OFFSET = 100;
-const CHARACTERS_PER_PAGE = 10;
+const CHARACTERS_PER_PAGE = 4;
 const NUMBER_OF_CHARACTERS_TO_GET = 20;
 
 
