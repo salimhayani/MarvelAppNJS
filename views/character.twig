@@ -1,0 +1,77 @@
+{% extends 'layout.twig' %}
+
+{% block stylesheets %}
+    <style>
+        .card-horizontal {
+            display: flex;
+            flex: 1 1 auto;
+        }
+        .card{
+            padding: 5px;
+        }
+        .img-character{
+            max-width: 300px;
+        }
+    </style>
+    {{ parent() }}
+
+{% endblock %}
+
+{% block body %}
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark static-top">
+        <div class="container">
+            <a class="navbar-brand" href="#">
+                <img src="/img/marvel_logo.png" style="height:70px;width:200px" alt="">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+                <ul class="navbar-nav ml-auto">
+                    <li class="nav-item">
+                        <a class="nav-link" href="/list">Liste des personnages
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="/logout">Se déconnecter</a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Page Content -->
+    <div class="container">
+        <div class="container-fluid">
+            <div class="row">
+                <div class="col-12 mt-3">
+                    <div class="card">
+                        <div class="card-horizontal">
+                            <div class="img-square-wrapper">
+                                <img class="img-character" src="{{ hero.thumbnail.path ~ '.' ~ hero.thumbnail.extension }}" alt="Card image cap">
+                            </div>
+                            <div class="card-body">
+                                <h4 class="card-title">Nom : {{ hero.name }}</h4>
+                                <h5 class="card-title">Description :</h5>
+                                <p class="card-text">{{ hero.description }}</p>
+                                <h5 class="card-title">Nombre de comics où il apparait : {{ hero.comics.available }}</h5>
+                                <h5 class="card-title">Les 3 premiers comics où il apparait :</h5>
+                                <ul>
+                                    {% for comic in hero.comics.items|slice(0, 3) %}
+                                    <li>{{ comic.name }}</li>
+                                    {% endfor %}
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="card-footer">
+                            <a class="nav-link" href="/list">« Retoutner à la liste des personnages
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+    <!-- /.container -->
+{% endblock %}

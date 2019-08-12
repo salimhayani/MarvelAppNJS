@@ -1,0 +1,26 @@
+.circle-img {
+    width: 130px;
+    height: 130px;
+    overflow: hidden;
+}
+
+.circle-img img {
+    height: 100%;
+    transform: translateX(-50%);
+    margin-left: 50%;
+}
+
+.card{
+    padding: 5px;
+    margin-top: 5px!important;
+    margin-bottom: 5px!important;
+}
+
+.page-link{
+    color:#343a40!important;
+}
+.page-item.active .page-link{
+    background-color:#343a40!important;
+    color: #f6f6f6!important;
+    border-color: #343a40!important;
+}
