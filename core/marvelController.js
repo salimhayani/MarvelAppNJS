@@ -19,7 +19,7 @@ class marvelController{
     
         if(user) {
                 
-            let page = typeof req.params.page == 'undefined' || !Number.isInteger(req.params.page) ? 1 : req.params.page;
+            let page = typeof req.params.page == 'undefined' || !Number.isInteger(parseInt(req.params.page)) ? 1 : req.params.page;
             let ts = Date.now();
             let hash = md5(ts + PRIVATE_KEY + PUBLIC_KEY);
             let limit = CHARACTERS_PER_PAGE;
